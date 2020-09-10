@@ -46,6 +46,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Google.Apis, Version=1.49.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.49.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.49.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.49.0\lib\net45\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.49.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.49.0\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.49.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.49.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.49.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.49.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Sheets.v4, Version=1.49.0.2069, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Sheets.v4.1.49.0.2069\lib\net45\Google.Apis.Sheets.v4.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -119,26 +137,144 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ApiExcelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ApiExcel.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animate-custom.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap3.css" />
+    <Content Include="Content\login.css" />
+    <Content Include="Content\toastr.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\dropways.css" />
+    <Content Include="fonts\dropways.svg" />
+    <Content Include="fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\footable.svg" />
+    <Content Include="fonts\foundation-icons.css" />
+    <Content Include="fonts\foundation-icons.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\ionicons-master\css\ionicons.css" />
+    <Content Include="fonts\ionicons-master\css\ionicons.min.css" />
+    <Content Include="fonts\ionicons.svg" />
+    <Content Include="fonts\themify-icons\themify-icons.css" />
+    <Content Include="fonts\themify.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\apple-touch-icon.png" />
+    <Content Include="Images\banner-img.png" />
+    <Content Include="Images\blue-logo.png" />
+    <Content Include="Images\briefcase.svg" />
+    <Content Include="Images\cancel.svg" />
+    <Content Include="Images\caution-sign.png" />
+    <Content Include="Images\chat-img1.jpg" />
+    <Content Include="Images\chat-img2.jpg" />
+    <Content Include="Images\check-mark-green.png" />
+    <Content Include="Images\check-mark.png" />
+    <Content Include="Images\check.jpg" />
+    <Content Include="Images\chrome.png" />
+    <Content Include="Images\coming-soon.png" />
+    <Content Include="Images\cross.png" />
+    <Content Include="Images\demo.svg" />
+    <Content Include="Images\deskapp-logo-white.svg" />
+    <Content Include="Images\deskapp-logo.svg" />
+    <Content Include="Images\edge.png" />
+    <Content Include="Images\editar.png" />
+    <Content Include="Images\favicon-16x16.png" />
+    <Content Include="Images\favicon-32x32.png" />
+    <Content Include="Images\firefox.png" />
+    <Content Include="Images\FisiLogo.png" />
+    <Content Include="Images\forgot-password.png" />
+    <Content Include="Images\github.svg" />
+    <Content Include="Images\guardar.png" />
+    <Content Include="Images\icon-Cash.png" />
+    <Content Include="Images\icon-debit.png" />
+    <Content Include="Images\icon-online-wallet.png" />
+    <Content Include="Images\img-fondo-login.jpg" />
+    <Content Include="Images\img-fondo-login.png" />
+    <Content Include="Images\img-login-bg.png" />
+    <Content Include="Images\img-logo.png" />
+    <Content Include="Images\img-select.png" />
+    <Content Include="Images\img.jpg" />
+    <Content Include="Images\img1.jpg" />
+    <Content Include="Images\img2.jpg" />
+    <Content Include="Images\img3.jpg" />
+    <Content Include="Images\img4.jpg" />
+    <Content Include="Images\img5.jpg" />
+    <Content Include="Images\img_buscar.png" />
+    <Content Include="Images\img_delete.png" />
+    <Content Include="Images\img_detail.png" />
+    <Content Include="Images\img_examine.png" />
+    <Content Include="Images\img_limpiar.png" />
+    <Content Include="Images\img_perfil.png" />
+    <Content Include="Images\img_regi_licencia.png" />
+    <Content Include="Images\img_search.png" />
+    <Content Include="Images\img_siguiente.png" />
+    <Content Include="Images\internet-explorer.png" />
+    <Content Include="Images\layout\header-dark.png" />
+    <Content Include="Images\layout\header-white.png" />
+    <Content Include="Images\layout\img-logo.png" />
+    <Content Include="Images\layout\sidebar-dark.png" />
+    <Content Include="Images\layout\sidebar-white.png" />
+    <Content Include="Images\login-img.png" />
+    <Content Include="Images\login-page-img.png" />
+    <Content Include="Images\logo-icon.png" />
+    <Content Include="Images\menu-icon.svg" />
+    <Content Include="Images\mision-fisi-unmsm.jpg" />
+    <Content Include="Images\modal-img1.jpg" />
+    <Content Include="Images\modal-img2.jpg" />
+    <Content Include="Images\modal-img3.jpg" />
+    <Content Include="Images\new-loader.gif" />
+    <Content Include="Images\new_socio.png" />
+    <Content Include="Images\opera.png" />
+    <Content Include="Images\page-icon.svg" />
+    <Content Include="Images\person.svg" />
+    <Content Include="Images\photo1.jpg" />
+    <Content Include="Images\photo2.jpg" />
+    <Content Include="Images\photo3.jpg" />
+    <Content Include="Images\photo4.jpg" />
+    <Content Include="Images\photo5.jpg" />
+    <Content Include="Images\photo6.jpg" />
+    <Content Include="Images\photo7.jpg" />
+    <Content Include="Images\photo8.jpg" />
+    <Content Include="Images\photo9.jpg" />
+    <Content Include="Images\plyr.svg" />
+    <Content Include="Images\product-1.jpg" />
+    <Content Include="Images\product-2.jpg" />
+    <Content Include="Images\product-3.jpg" />
+    <Content Include="Images\product-4.jpg" />
+    <Content Include="Images\product-5.jpg" />
+    <Content Include="Images\product-img1.jpg" />
+    <Content Include="Images\product-img2.jpg" />
+    <Content Include="Images\product-img3.jpg" />
+    <Content Include="Images\product-img4.jpg" />
+    <Content Include="Images\profile-photo.jpg" />
+    <Content Include="Images\register-page-img.png" />
+    <Content Include="Images\safari.png" />
+    <Content Include="Images\success.png" />
+    <Content Include="Images\tick.svg" />
+    <Content Include="Images\upload-file-img.jpg" />
+    <Content Include="Images\validar_socio.png" />
+    <Content Include="Images\wave.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -158,6 +294,32 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="fonts\dropways.eot" />
+    <Content Include="fonts\dropways.ttf" />
+    <Content Include="fonts\dropways.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\footable.eot" />
+    <Content Include="fonts\footable.ttf" />
+    <Content Include="fonts\footable.woff" />
+    <Content Include="fonts\foundation-icons.eot" />
+    <Content Include="fonts\foundation-icons.ttf" />
+    <Content Include="fonts\foundation-icons.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\ionicons.eot" />
+    <Content Include="fonts\ionicons.ttf" />
+    <Content Include="fonts\ionicons.woff" />
+    <Content Include="fonts\themify.eot" />
+    <Content Include="fonts\themify.ttf" />
+    <Content Include="fonts\themify.woff" />
+    <Content Include="Images\Thumbs.db" />
+    <Content Include="credentials.json" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -171,6 +333,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\placeholder-shim.min.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -238,6 +401,7 @@
     <Content Include="Scripts\src\utils\setAttributes.js" />
     <Content Include="Scripts\src\utils\setStyles.js" />
     <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -266,10 +430,12 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\ApiExcel\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    @*<link rel="shortcut icon" href="http://www.apdayc.org.pe/templates/rt_iridescent/favicon.ico">*@
+    <title>FISI</title>
+
+
+    @Styles.Render("~/Content/LoginCss")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/socio")
+    @Scripts.Render("~/bundles/jqueryui")*@
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/toastr")
+    <style type="text/css">
+        .messagealert {
+            width: 100%;
+            position: fixed;
+            top: 0px;
+            z-index: 100000;
+            padding: 0;
+            font-size: 15px;
+        }
+    </style>
+
+
+
+
+</head>
+<body>
+
+    @RenderBody()
+    @Scripts.Render("~/bundles/placeholder")
+    @Scripts.Render("~/bundles/custom")
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
