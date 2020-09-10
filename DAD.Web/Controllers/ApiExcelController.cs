@@ -16,8 +16,6 @@ namespace DAD.Web.Controllers
     public class ApiExcelController : Controller
     {
         // GET: ApiExcel
-        static string[] Scopes = { SheetsService.Scope.SpreadsheetsReadonly};
-        static string ApplicationName = "ProyectoFinalDAD";
         public ActionResult ApiExcel()
         {
             ApiExcel excel = new ApiExcel();

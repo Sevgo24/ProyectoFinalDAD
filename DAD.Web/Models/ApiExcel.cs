@@ -19,7 +19,7 @@ namespace DAD.Web.Models
         public void Excel()
         {
             UserCredential credential;
-            using (var stream = new FileStream(@"D:\credentials.json", FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream(@"D:\GIT PROYECTOS PERSONALES\GIT DAD\ProyectoFinalDAD\DAD.Web\bin\credentials.json", FileMode.Open, FileAccess.Read))
             {
                 string creadPath = @"D:\token.json";
                 credential = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(stream).Secrets, Scopes, "user", CancellationToken.None,

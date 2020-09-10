@@ -319,7 +319,6 @@
     <Content Include="fonts\themify.ttf" />
     <Content Include="fonts\themify.woff" />
     <Content Include="Images\Thumbs.db" />
-    <Content Include="credentials.json" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -432,10 +431,10 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_Login.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\ApiExcel\ApiExcel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ApiExcel\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
