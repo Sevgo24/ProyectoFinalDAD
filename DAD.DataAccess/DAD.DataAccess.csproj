@@ -63,9 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionBD\AdoHelper.cs" />
-    <Compile Include="Entities\UsuarioBE.cs" />
+    <Compile Include="Entities\AlumnoBE.cs" />
+    <Compile Include="Entities\DimensionBE.cs" />
+    <Compile Include="Entities\PreguntaBE.cs" />
+    <Compile Include="Entities\RespuestaBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\UsuarioDA.cs" />
+    <Compile Include="Repositories\AlumnoDA.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

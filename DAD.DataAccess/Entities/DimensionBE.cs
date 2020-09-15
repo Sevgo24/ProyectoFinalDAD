@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace DAD.DataAccess.Entities
 {
-    class UsuarioBE
+    public class DimensionBE
     {
+        public int CODDIMENSION { get; set; }
+        public string NOMBREDIMENSION { get; set; }
     }
 }

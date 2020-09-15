@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAD.DataAccess.Repositories
 {
-    class UsuarioDA
+    public class AlumnoDA
     {
     }
 }
