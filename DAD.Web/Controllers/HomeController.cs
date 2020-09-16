@@ -46,5 +46,21 @@ namespace DAD.Web.Controllers
 
             return new EmptyResult();
         }
+        public ActionResult Respuesta()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Respuesta(string codalum,string correo, int dimensiones)
+        {
+            if (codalum == null)
+            {
+                codalum = "";
+            }
+            
+
+            return View();
+        }
     }
 }
