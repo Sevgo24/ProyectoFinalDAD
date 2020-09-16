@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAD.BusinessLogic.Implementation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,19 @@ namespace DAD.Web.Controllers
 {
     public class HomeController : Controller
     {
+        AlumnoBL alumnoBL = new AlumnoBL();
         public ActionResult Index()
         {
+            
             return View();
         }
+        [HttpPost]
+        public ActionResult Index(string codalum)
+        {
+            var list = alumnoBL.ListaUsuarioBandejaCms(codalum);
+            return View(list);
+        }
+        
 
         public ActionResult About()
         {

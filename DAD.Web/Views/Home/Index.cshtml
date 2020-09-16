@@ -1,20 +1,119 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<DAD.DataAccess.Entities.AlumnoBandejaResultado>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Login.cshtml";
 }
 
     <div class="container">
-        <h1>Proyecto DAD final</h1>
-        <hr />
-        <br />
-        <div class="row d-flex justify-content-around">
-            <a href="#" class="btn btn-primary">Dimensión tangibilidad</a>
-            <a href="#" class="btn btn-primary">Dimensión empatia</a>
-            <a href="#" class="btn btn-primary">Dimensión capacidad de respuesta</a>
-            <a href="#" class="btn btn-primary">Dimensión fiabilidad</a>
-            <a href="#" class="btn btn-primary">Dimensión cortesia</a>
-            <a href="#" class="btn btn-primary">Filatro por sexo</a>
-            <a href="#" class="btn btn-primary">Filtro por año de ingreso</a>
-           
+
+        <h1>PROYECTO DAD FINAL</h1>
+        <div class="row">
+            @using (Html.BeginForm()) { 
+            
+            }
+
+            <p>
+                Codigo de alumno:
+            </p>
+            <input type="text" id="CODALUM" />
         </div>
-        
+
+        <button class="btn btn-primary">BUSCAR</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Codigo Alumno
+
+                    </th>
+                    <th>
+                        Correo Alumno
+
+                    </th>
+                    <th>
+                        Sexo
+
+                    </th>
+                    <th>
+                        Fecha de Registro
+
+                    </th>
+                    <th>
+                        Nombre de escuela
+
+                    </th>
+                    <th>
+                        Ciclo de alumno
+
+                    </th>
+                    <th>
+
+                    </th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null)
+                {
+
+                }
+                else
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CODALUMNO)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CORREOALUMNO)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SEXO)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FECHAREGISTRO)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NOMBREESCUELA)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CICLOALUMNO)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TRABAJO)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            </td>
+                        </tr>
+                        }
+                    }
+
+            </tbody>
+        </table>
+
+        <div class="row d-flex justify-content-around">
+
+            <a href="#" class="btn btn-primary">Dimensión tangibilidad</a>
+
+            <a href="#" class="btn btn-primary">Dimensión empatia</a>
+
+            <a href="#" class="btn btn-primary">Dimensión capacidad de respuesta</a>
+
+            <a href="#" class="btn btn-primary">Dimensión fiabilidad</a>
+
+            <a href="#" class="btn btn-primary">Dimensión cortesia</a>
+
+            <a href="#" class="btn btn-primary">Filatro por sexo</a>
+
+            <a href="#" class="btn btn-primary">Filtro por año de ingreso</a>
+
+
+        </div>
     </div>
+

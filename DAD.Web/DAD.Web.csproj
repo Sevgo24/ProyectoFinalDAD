@@ -486,6 +486,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAD.BusinessLogic\DAD.BusinessLogic.csproj">
+      <Project>{05AA5FCB-D0E2-4097-B34A-DF368089E523}</Project>
+      <Name>DAD.BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAD.DataAccess\DAD.DataAccess.csproj">
       <Project>{e8dd5d3d-ba47-4882-b6e9-133e6f85cfc2}</Project>
       <Name>DAD.DataAccess</Name>
