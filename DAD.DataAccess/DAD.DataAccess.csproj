@@ -68,9 +68,11 @@
     <Compile Include="Entities\AlumnoBE.cs" />
     <Compile Include="Entities\DimensionBE.cs" />
     <Compile Include="Entities\PreguntaBE.cs" />
+    <Compile Include="Entities\RespuestaBandejaResultado.cs" />
     <Compile Include="Entities\RespuestaBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AlumnoDA.cs" />
+    <Compile Include="Repositories\DimensionDA.cs" />
     <Compile Include="Repositories\RespuestaDA.cs" />
   </ItemGroup>
   <ItemGroup>

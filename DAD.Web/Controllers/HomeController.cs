@@ -44,7 +44,7 @@ namespace DAD.Web.Controllers
         {
             apiExcel.Excel();
 
-            return new EmptyResult();
+            return RedirectToAction("Index");
         }
         public ActionResult Respuesta()
         {

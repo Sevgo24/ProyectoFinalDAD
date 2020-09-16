@@ -15,6 +15,28 @@ namespace DAD.DataAccess.Repositories
     {
         AdoHelper adoHelper = new AdoHelper();
 
+        public List<RespuestaBandejaResultado> ListarRespuestaBandejaCms(string codAlumno, int codDimension)
+        {
+            var lista = new List<RespuestaBandejaResultado>();
+            var codAlumnoParam = new SqlParameter("@CODALUMNO", SqlDbType.VarChar) { Direction = ParameterDirection.Input, Value = (object)codAlumno ?? DBNull.Value };
+            var codDimensionParam = new SqlParameter("@CODDIMENSION", SqlDbType.Int) { Direction = ParameterDirection.Input, Value = (object)codDimension ?? DBNull.Value };
+            using (var adoHelper = new AdoHelper())
+            {
+                using (var reader = adoHelper.ExecDataReaderProc("[DBO].[USP_RESPUESTA_LIST]", codAlumnoParam, codDimensionParam))
+                {
+                    while (reader.Read()) lista.Add(new RespuestaBandejaResultado()
+                    {
+                        CODALUMNO = reader["CODALUMNO"].ToString(),
+                        CORREOALUMNO = reader["CORREOALUMNO"].ToString(),
+                        FECHAREGISTRO = reader["FECHAREGISTRO"].ToString(),
+                        NOMBREESCUELA = reader["NOMBREESCUELA"].ToString(),
+                        CICLOALUMNO = reader["CICLOALUMNO"].ToString()
+                    });
+                }
+            }
+            return lista;
+        }
+
         public void InsertarRespuestaApiExcel(RespuestaBE item)
         {
             var puntajeRespuestaParam = new SqlParameter("@PUNTAJERESPUESTA", SqlDbType.Int) { Direction = ParameterDirection.Input, Value = (object)item.PUNTAJERESPUESTA ?? DBNull.Value };
