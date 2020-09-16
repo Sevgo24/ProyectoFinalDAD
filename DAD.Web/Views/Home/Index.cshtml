@@ -9,15 +9,15 @@
 
         <h1>PROYECTO DAD FINAL</h1>
         <div class="row">
-            @using (Html.BeginForm()) { 
-            
-            }
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+            {
 
-            <p>
-                Codigo de alumno:
-            </p>
-            <input type="text" id="CODALUM" />
-        </div>
+                <p>
+                    Codigo de alumno:
+                </p>
+                <input type="text" id="CODALUM" />
+            }
+            </div>
 
         <button class="btn btn-primary">BUSCAR</button>
         <table class="table">
