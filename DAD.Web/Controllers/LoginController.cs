@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAD.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,12 @@ namespace DAD.Web.Controllers
     {
         // GET: Login
         public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(Login )
         {
             return View();
         }
