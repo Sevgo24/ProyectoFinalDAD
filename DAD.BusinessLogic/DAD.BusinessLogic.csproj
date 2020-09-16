@@ -64,6 +64,8 @@
   <ItemGroup>
     <Compile Include="ExternalAgent\ConnectionApiExcel.cs" />
     <Compile Include="Implementation\AlumnoBL.cs" />
+    <Compile Include="Implementation\DimensionBL.cs" />
+    <Compile Include="Implementation\RespuestaBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
