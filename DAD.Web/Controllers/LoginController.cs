@@ -17,8 +17,12 @@ namespace DAD.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(Login )
+        public ActionResult Login(Login login)
         {
+            if (login.usuario == "admin" && login.password == "admin")
+            {
+                return RedirectToAction("Index","Home");
+            }
             return View();
         }
     }
