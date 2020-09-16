@@ -1,4 +1,5 @@
-﻿using DAD.BusinessLogic.Implementation;
+﻿using DAD.BusinessLogic.ExternalAgent;
+using DAD.BusinessLogic.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace DAD.Web.Controllers
     public class HomeController : Controller
     {
         AlumnoBL alumnoBL = new AlumnoBL();
+        ConnectionApiExcel apiExcel = new ConnectionApiExcel();
         public ActionResult Index()
         {
             
@@ -25,6 +27,7 @@ namespace DAD.Web.Controllers
 
         public ActionResult About()
         {
+            apiExcel.Excel();
             ViewBag.Message = "Your application description page.";
 
             return View();
@@ -35,6 +38,13 @@ namespace DAD.Web.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult ActualizarBaseDatos()
+        {
+            apiExcel.Excel();
+
+            return new EmptyResult();
         }
     }
 }

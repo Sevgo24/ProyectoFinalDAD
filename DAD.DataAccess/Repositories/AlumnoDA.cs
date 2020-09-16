@@ -17,7 +17,7 @@ namespace DAD.DataAccess.Repositories
         {
             var lista = new List<AlumnoBandejaResultado>();
 
-            var codAlumnoParam = new SqlParameter("@Usua_NombreCompleto", SqlDbType.VarChar) { Direction = ParameterDirection.Input, Value = (object)codAlumno ?? DBNull.Value };
+            var codAlumnoParam = new SqlParameter("@CODALUMNO", SqlDbType.VarChar) { Direction = ParameterDirection.Input, Value = (object)codAlumno ?? DBNull.Value };
            
             using (var adoHelper = new AdoHelper())
             {
@@ -35,7 +35,7 @@ namespace DAD.DataAccess.Repositories
         private AlumnoBandejaResultado ObtenerAlumnoBandeja(SqlDataReader reader)
         {
             var item = new AlumnoBandejaResultado();
-            item.CICLOALUMNO = reader["CICLOALUMNO"].ToString();
+            item.CODALUMNO = reader["CODALUMNO"].ToString();
             item.CORREOALUMNO = reader["CORREOALUMNO"].ToString();
             item.SEXO = reader["SEXO"].ToString();
             item.FECHAREGISTRO = ((DateTime)reader["FECHAREGISTRO"]).ToString();
