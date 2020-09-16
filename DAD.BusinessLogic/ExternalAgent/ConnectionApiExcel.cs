@@ -1,4 +1,6 @@
-﻿using Google.Apis.Auth.OAuth2;
+﻿using DAD.DataAccess.Entities;
+using DAD.DataAccess.Repositories;
+using Google.Apis.Auth.OAuth2;
 using Google.Apis.Services;
 using Google.Apis.Sheets.v4;
 using Google.Apis.Util.Store;
@@ -14,11 +16,15 @@ namespace DAD.BusinessLogic.ExternalAgent
 {
     public class ConnectionApiExcel
     {
+        AlumnoDA alumnoDA = new AlumnoDA();
+
         static string[] Scopes = { SheetsService.Scope.SpreadsheetsReadonly };
         static string ApplicationName = "ProyectoFinalDAD";
 
         public void Excel()
         {
+            var lista = new List<AlumnoBE>(); 
+
             UserCredential credential;
             using (var stream = new FileStream(@"D:\GIT PROYECTOS PERSONALES\GIT DAD\ProyectoFinalDAD\DAD.Web\bin\credentials.json", FileMode.Open, FileAccess.Read))
             {
@@ -32,7 +38,7 @@ namespace DAD.BusinessLogic.ExternalAgent
                 ApplicationName = ApplicationName
             });
             String spreadsheetId = "141PdF8dYokUz2XXGV6MKq5R69KDgz3YFdfrUoTKCEhw";
-            String range = "Form Responses 1!A:AB";
+            String range = "Form Responses 1!A2:G";
             SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadsheetId, range);
 
             var response = request.Execute();
@@ -41,13 +47,40 @@ namespace DAD.BusinessLogic.ExternalAgent
             {
                 foreach (var row in values)
                 {
+                    lista.Add(new AlumnoBE()
+                    {
+                        FECHAREGISTRO = Convert.ToDateTime(row[0].ToString()),
+                        CORREOALUMNO = row[1].ToString(),
+                        CODALUMNO = row[2].ToString(),
+                        NOMBREESCUELA = row[3].ToString(),
+                        SEXOALUMNO = row[4].ToString(),
+                        CICLOALUMNO = row[5].ToString(),
+                        TRABAJOALUMNO = row[6].ToString().Equals("No") ? 0 : 1
+                    });
+                }
 
+                foreach (var item in lista)
+                {
+                    InsertarAlumno(item);
                 }
             }
             else
             {
 
             }
+
+
+
+        }
+
+        private void InsertarRespuesta()
+        {
+
+        }
+
+        private void InsertarAlumno(AlumnoBE alumno)
+        {
+            alumnoDA.InsertarAlumnoApiExcel(alumno);
         }
     }
 }
