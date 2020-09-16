@@ -10,8 +10,8 @@ namespace DAD.DataAccess.Entities
     {
         public int CODRESPUESTA { get; set; }
         public int? PUNTAJERESPUESTA { get; set; }
-        public int FECHAREGISTRO { get; set; }
-        public int CODALUMNO { get; set; }
+        public DateTime FECHAREGISTRO { get; set; }
+        public string CODALUMNO { get; set; }
         public int CODPREGUNTA { get; set; }
         public int CODDIMENSION { get; set; }
     }

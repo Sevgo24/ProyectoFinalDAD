@@ -31,16 +31,31 @@ namespace DAD.DataAccess.Repositories
 
         public void InsertarAlumnoApiExcel(AlumnoBE item)
         {
-            var codAlumnoParam = new SqlParameter("@CODALUMNO", SqlDbType.UniqueIdentifier) { Direction = ParameterDirection.Input, Value = item.CODALUMNO };
+            var codAlumnoParam = new SqlParameter("@CODALUMNO", SqlDbType.VarChar) { Direction = ParameterDirection.Input, Value = item.CODALUMNO };
             var correoParam = new SqlParameter("@CORREOALUMNO", SqlDbType.VarChar) { Direction = ParameterDirection.Input, Value = (object)item.CORREOALUMNO ?? DBNull.Value };
             var sexoParam = new SqlParameter("@SEXOALUMNO", SqlDbType.VarChar) { Direction = ParameterDirection.Input, Value = (object)item.SEXOALUMNO ?? DBNull.Value };
             var nombreEscuelaParam = new SqlParameter("@NOMBREESCUELA", SqlDbType.VarChar) { Direction = ParameterDirection.Input, Value = (object)item.NOMBREESCUELA ?? DBNull.Value };
             var cicloAlumnoParam = new SqlParameter("@CICLOALUMNO", SqlDbType.VarChar) { Direction = ParameterDirection.Input, Value = item.CICLOALUMNO };
-            var trabajoAlumnoParam = new SqlParameter("@TRABAJOALUMNO", SqlDbType.VarChar) { Direction = ParameterDirection.Input, Value = (object)item.TRABAJOALUMNO ?? DBNull.Value };
+            var trabajoAlumnoParam = new SqlParameter("@TRABAJOALUMNO", SqlDbType.Int) { Direction = ParameterDirection.Input, Value = (object)item.TRABAJOALUMNO ?? DBNull.Value };
             var fechaRegistroParam = new SqlParameter("@FECHAREGISTRO", SqlDbType.DateTime) { Direction = ParameterDirection.Input, Value = item.FECHAREGISTRO };
             
-            adoHelper.ExecNonQueryProc("[DBO].[USP_ALUMNOS_INS]", codAlumnoParam, correoParam, sexoParam, nombreEscuelaParam, cicloAlumnoParam,
-                cicloAlumnoParam, trabajoAlumnoParam, fechaRegistroParam);
+            adoHelper.ExecNonQueryProc("[DBO].[USP_ALUMNOS_INS]", codAlumnoParam, correoParam, sexoParam, nombreEscuelaParam, cicloAlumnoParam, trabajoAlumnoParam, fechaRegistroParam);
+        }
+
+        public int ValidarAlumnoPorCodigoAlumno(string codAlumno)
+        {
+            var cantidad = 0;
+
+            var codAlumnoParam = new SqlParameter("@CODALUMNO", SqlDbType.VarChar) { Direction = ParameterDirection.Input, Value = (object)codAlumno ?? DBNull.Value };
+
+            using (var adoHelper = new AdoHelper())
+            {
+                using (var reader = adoHelper.ExecDataReaderProc("[DBO].[USP_VALIDAREXISTENCIAALUMNO_READ]", codAlumnoParam))
+                {
+                    while (reader.Read()) cantidad = Convert.ToInt32(reader["Cantidad"].ToString());
+                }
+            }
+            return cantidad;
         }
 
         #region Mapper
