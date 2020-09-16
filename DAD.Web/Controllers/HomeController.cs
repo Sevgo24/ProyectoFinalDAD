@@ -11,6 +11,8 @@ namespace DAD.Web.Controllers
     public class HomeController : Controller
     {
         AlumnoBL alumnoBL = new AlumnoBL();
+        RespuestaBL respuestaBL = new RespuestaBL();
+        DimensionBL dimensionBL = new DimensionBL();
         ConnectionApiExcel apiExcel = new ConnectionApiExcel();
         public ActionResult Index()
         {
@@ -48,19 +50,19 @@ namespace DAD.Web.Controllers
         }
         public ActionResult Respuesta()
         {
-
+            ViewBag.ListaDimension = dimensionBL.ListarDimensionCms();
             return View();
         }
         [HttpPost]
-        public ActionResult Respuesta(string codalum,string correo, int dimensiones)
+        public ActionResult Respuesta(string CODALUM, int dimensiones)
         {
-            if (codalum == null)
+            if (CODALUM == null)
             {
-                codalum = "";
+                CODALUM = "";
             }
-            
+            var lista = respuestaBL.ListarRespuestaBandejaCms(CODALUM, dimensiones);
 
-            return View();
+            return View(lista);
         }
     }
 }
