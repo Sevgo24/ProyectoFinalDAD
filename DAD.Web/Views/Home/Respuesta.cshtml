@@ -1,16 +1,16 @@
-﻿@model IEnumerable<DAD.DataAccess.Entities.AlumnoBandejaResultado>
+﻿@model IEnumerable<DAD.DataAccess.Entities.RespuestaBandejaResultado>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Respuesta";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
     <div class="container">
 
-        <h1>SRVQUAL CALIDAD DE SERVICIO DE LA FISI - ALUMNO: </h1>
-        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        <h1>SRVQUAL CALIDAD DE SERVICIO DE LA FISI - RESPUESTA: </h1>
+        @using (Html.BeginForm("Respuesta", "Home", FormMethod.Post))
         {
-            <div class="row">
+            <div class="row-12">
 
 
                 <p class="col-4">
@@ -19,6 +19,10 @@
                 @Html.Editor("CODALUM", new { htmlAttributes = new { @class = "form-control col-3", @id = "CODALUM" } })
                 @*<input type="text" id="CODALUM" />*@
 
+            </div>
+            <div class="row col-12">
+                <p class="col-4">Dimensión:</p>
+                @Html.DropDownList("dimensiones", new SelectList(ViewBag.ListaDimension, "CODDIMENSION", "NOMBREDIMENSION"), new { @class = "form-control col-3", @id = "dimensiones" })
             </div>
             <br />
             <div class="row d-flex justify-content-around">
@@ -29,38 +33,39 @@
             </div>
 
         }
+
         <br />
+
+
         <table class="table table-bordered nowrap" id="table">
             <thead class="thead-dark">
+
+
                 <tr>
                     <th>
+
                         Codigo Alumno
-
                     </th>
                     <th>
-                        Correo Alumno
 
+                        Correo de Alumno
                     </th>
                     <th>
-                        Sexo
 
+                        Nombre de Dimensión
                     </th>
                     <th>
+
                         Fecha de Registro
-
                     </th>
                     <th>
-                        Nombre de escuela
 
+                        Nombre de Escuela
                     </th>
                     <th>
-                        Ciclo de alumno
 
+                        Ciclo Académico
                     </th>
-                    <th>
-                        Actualmente trabajando
-                    </th>
-                    @*<th></th>*@
 
                 </tr>
             </thead>
@@ -81,7 +86,7 @@
                                 @Html.DisplayFor(modelItem => item.CORREOALUMNO)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.SEXO)
+                                @Html.DisplayFor(modelItem => item.NOMBREDIMENSION)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.FECHAREGISTRO)
@@ -92,45 +97,19 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.CICLOALUMNO)
                             </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.TRABAJO)
-                            </td>
-                            @*<td>
 
-                                @Html.ActionLink("Details", "Details", new { id=item.CODALUMNO }) |
-
-                            </td>*@
                         </tr>
                     }
                 }
-
             </tbody>
+
         </table>
-
-        @*<div class="row d-flex justify-content-end">
-                <a href="#" class="btn btn-primary">Actualizar Base de Datos</a>
-                <a href="#" class="btn btn-primary">Dimensión empatia</a>
-
-                <a href="#" class="btn btn-primary">Dimensión capacidad de respuesta</a>
-
-                <a href="#" class="btn btn-primary">Dimensión confiabilidad</a>
-
-                <a href="#" class="btn btn-primary">Dimensión cortesia</a>
-
-                <a href="#" class="btn btn-primary">Filtro por sexo</a>
-
-                <a href="#" class="btn btn-primary">Filtro por año de ingreso</a>
-
-
-        </div>*@
         <br />
         <br />
         <iframe width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=73b83aa8-5ea0-4f3a-bf41-36c3d7469c62&autoAuth=true&ctid=717b9a79-1b91-41ab-a6f7-a579b46a9b41&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWNlbnRyYWwtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" frameborder="0" allowFullScreen="true"></iframe>
         <br />
         <br />
     </div>
-
-
 @section scripts{
     <script>
 
@@ -163,7 +142,5 @@
             });
         });
     </script>
-    
-    
-    
-    }
+
+}
