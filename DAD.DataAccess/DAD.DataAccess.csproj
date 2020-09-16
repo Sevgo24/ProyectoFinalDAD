@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionBD\AdoHelper.cs" />
+    <Compile Include="Entities\AlumnoBandejaResultado.cs" />
     <Compile Include="Entities\AlumnoBE.cs" />
     <Compile Include="Entities\DimensionBE.cs" />
     <Compile Include="Entities\PreguntaBE.cs" />

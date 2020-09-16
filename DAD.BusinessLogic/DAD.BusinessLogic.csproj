@@ -62,11 +62,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Implementation\UsuarioBL.cs" />
+    <Compile Include="Implementation\AlumnoBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAD.DataAccess\DAD.DataAccess.csproj">
+      <Project>{E8DD5D3D-BA47-4882-B6E9-133E6F85CFC2}</Project>
+      <Name>DAD.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
