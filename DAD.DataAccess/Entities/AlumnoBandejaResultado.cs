@@ -4,7 +4,7 @@ namespace DAD.DataAccess.Entities
 {
     public class AlumnoBandejaResultado
     {
-        public int CODALUMNO { get; set; }
+        public string CODALUMNO { get; set; }
         public string CORREOALUMNO { get; set; }
         public string SEXO { get; set; }
         public string FECHAREGISTRO { get; set; }
