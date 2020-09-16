@@ -8,20 +8,25 @@
     <div class="container">
 
         <h1>PROYECTO DAD FINAL</h1>
-        <div class="row">
-            @using (Html.BeginForm()) { 
-            
-            }
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            <div class="row">
 
-            <p>
-                Codigo de alumno:
-            </p>
-            <input type="text" id="CODALUM" />
-        </div>
 
-        <button class="btn btn-primary">BUSCAR</button>
-        <table class="table">
-            <thead>
+                <p class="col-4">
+                    Codigo de alumno:
+                </p>
+                @Html.Editor("CODALUM", new { htmlAttributes = new { @class = "form-control col-3", @id = "CODALUM" } })
+                @*<input type="text" id="CODALUM" />*@
+
+            </div>
+            <br />
+            <button class="btn btn-primary">BUSCAR</button>
+
+        }
+        <br />
+        <table class="table table-bordered">
+            <thead class="thead-dark">
                 <tr>
                     <th>
                         Codigo Alumno
@@ -91,8 +96,8 @@
                                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
                             </td>
                         </tr>
-                        }
                     }
+                }
 
             </tbody>
         </table>
@@ -105,11 +110,11 @@
 
             <a href="#" class="btn btn-primary">Dimensión capacidad de respuesta</a>
 
-            <a href="#" class="btn btn-primary">Dimensión fiabilidad</a>
+            <a href="#" class="btn btn-primary">Dimensión confiabilidad</a>
 
             <a href="#" class="btn btn-primary">Dimensión cortesia</a>
 
-            <a href="#" class="btn btn-primary">Filatro por sexo</a>
+            <a href="#" class="btn btn-primary">Filtro por sexo</a>
 
             <a href="#" class="btn btn-primary">Filtro por año de ingreso</a>
 

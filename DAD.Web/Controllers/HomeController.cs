@@ -18,9 +18,9 @@ namespace DAD.Web.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(string codalum)
+        public ActionResult Index(string CODALUM)
         {
-            var list = alumnoBL.ListaUsuarioBandejaCms(codalum);
+            var list = alumnoBL.ListaUsuarioBandejaCms(CODALUM);
             return View(list);
         }
         
