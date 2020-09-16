@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAD.DataAccess.ConnectionBD
 {
-    class AdoHelper : IDisposable
+    public class AdoHelper : IDisposable
     {
         // Internal members
         protected string _connString = null;
