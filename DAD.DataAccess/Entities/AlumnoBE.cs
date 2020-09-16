@@ -8,7 +8,7 @@ namespace DAD.DataAccess.Entities
 {
     public class AlumnoBE
     {
-        public int CODALUMNO { get; set; }
+        public string CODALUMNO { get; set; }
         public string CORREOALUMNO { get; set; }
         public string SEXOALUMNO { get; set; }
         public string NOMBREESCUELA { get; set; }

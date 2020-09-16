@@ -29,7 +29,19 @@ namespace DAD.DataAccess.Repositories
             return lista;
         }
 
-
+        public void InsertarAlumnoApiExcel(AlumnoBE item)
+        {
+            var codAlumnoParam = new SqlParameter("@CODALUMNO", SqlDbType.UniqueIdentifier) { Direction = ParameterDirection.Input, Value = item.CODALUMNO };
+            var correoParam = new SqlParameter("@CORREOALUMNO", SqlDbType.VarChar) { Direction = ParameterDirection.Input, Value = (object)item.CORREOALUMNO ?? DBNull.Value };
+            var sexoParam = new SqlParameter("@SEXOALUMNO", SqlDbType.VarChar) { Direction = ParameterDirection.Input, Value = (object)item.SEXOALUMNO ?? DBNull.Value };
+            var nombreEscuelaParam = new SqlParameter("@NOMBREESCUELA", SqlDbType.VarChar) { Direction = ParameterDirection.Input, Value = (object)item.NOMBREESCUELA ?? DBNull.Value };
+            var cicloAlumnoParam = new SqlParameter("@CICLOALUMNO", SqlDbType.VarChar) { Direction = ParameterDirection.Input, Value = item.CICLOALUMNO };
+            var trabajoAlumnoParam = new SqlParameter("@TRABAJOALUMNO", SqlDbType.VarChar) { Direction = ParameterDirection.Input, Value = (object)item.TRABAJOALUMNO ?? DBNull.Value };
+            var fechaRegistroParam = new SqlParameter("@FECHAREGISTRO", SqlDbType.DateTime) { Direction = ParameterDirection.Input, Value = item.FECHAREGISTRO };
+            
+            adoHelper.ExecNonQueryProc("[DBO].[USP_ALUMNOS_INS]", codAlumnoParam, correoParam, sexoParam, nombreEscuelaParam, cicloAlumnoParam,
+                cicloAlumnoParam, trabajoAlumnoParam, fechaRegistroParam);
+        }
 
         #region Mapper
         private AlumnoBandejaResultado ObtenerAlumnoBandeja(SqlDataReader reader)
