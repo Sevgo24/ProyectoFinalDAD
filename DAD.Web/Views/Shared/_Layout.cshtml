@@ -9,15 +9,18 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    
+
     <div class="container body-content">
+        <br />
         @RenderBody()
         <hr />
-       
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquerydatatable")
+    @Scripts.Render("~/bundles/datatablebootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>

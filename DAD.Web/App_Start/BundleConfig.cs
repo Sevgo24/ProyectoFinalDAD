@@ -25,10 +25,16 @@ namespace DAD.Web
                       "~/Scripts/placeholder-shim.min.js"));
             bundles.Add(new ScriptBundle("~/bundles/custom").Include(
                       "~/Scripts/custom.js"));
+            bundles.Add(new ScriptBundle("~/bundles/jquerydatatable").Include(
+                      "~/Scripts/jquery.dataTables.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/datatablebootstrap").Include(
+                      "~/Scripts/dataTables.bootstrap4.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                     
+
+                      "~/Content/dataTables.bootstrap4.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/LoginCss").Include(
                       "~/Content/bootstrap.css",
