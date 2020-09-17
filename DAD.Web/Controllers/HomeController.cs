@@ -1,9 +1,5 @@
 ﻿using DAD.BusinessLogic.ExternalAgent;
 using DAD.BusinessLogic.Implementation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace DAD.Web.Controllers
@@ -16,7 +12,6 @@ namespace DAD.Web.Controllers
         ConnectionApiExcel apiExcel = new ConnectionApiExcel();
         public ActionResult Index()
         {
-            
             return View();
         }
         [HttpPost]
@@ -24,22 +19,6 @@ namespace DAD.Web.Controllers
         {
             var list = alumnoBL.ListaUsuarioBandejaCms(CODALUM);
             return View(list);
-        }
-        
-
-        public ActionResult About()
-        {
-            apiExcel.Excel();
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
         }
 
         public ActionResult ActualizarBaseDatos()
@@ -61,7 +40,7 @@ namespace DAD.Web.Controllers
                 CODALUM = "";
             }
             var lista = respuestaBL.ListarRespuestaBandejaCms(CODALUM, dimensiones);
-
+            ViewBag.ListaDimension = dimensionBL.ListarDimensionCms();
             return View(lista);
         }
     }
