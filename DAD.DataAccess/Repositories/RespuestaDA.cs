@@ -30,6 +30,7 @@ namespace DAD.DataAccess.Repositories
                         CORREOALUMNO = reader["CORREOALUMNO"].ToString(),
                         FECHAREGISTRO = reader["FECHAREGISTRO"].ToString(),
                         NOMBREESCUELA = reader["NOMBREESCUELA"].ToString(),
+                        NOMBREDIMENSION = reader["NOMBREDIMENSION"].ToString(),
                         CICLOALUMNO = reader["CICLOALUMNO"].ToString()
                     });
                 }
