@@ -371,7 +371,7 @@ namespace DAD.BusinessLogic.ExternalAgent
                 {
                     lista.Add(new AlumnoBE()
                     {
-                        FECHAREGISTRO = Convert.ToDateTime(row[0].ToString()),
+                        FECHAREGISTRO = DateTime.Now,
                         CORREOALUMNO = row[1].ToString(),
                         CODALUMNO = row[2].ToString(),
                         NOMBREESCUELA = row[3].ToString(),
